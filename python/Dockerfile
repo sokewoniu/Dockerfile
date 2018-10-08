@@ -60,6 +60,12 @@ ENV LD_LIBRARY_PATH /usr/lib/instantclient_12_1
 ENV TNS_ADMIN /usr/lib/instantclient_12_1
 ENV ORACLE_HOME /usr/lib/instantclient_12_1
 
+VOLUME /code
+WORKDIR /code
+
+
 RUN pip install cx_Oracle
 RUN pip install pika
 RUN apk del gcc musl-dev
+
+CMD ["python2","app.py"]
