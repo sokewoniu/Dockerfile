@@ -43,7 +43,7 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
 # add oracle client
-RUN apk update && apk add libaio
+RUN apk add libaio gcc musl-dev
 
 COPY instantclient_12_1.zip ./
 RUN unzip instantclient_12_1.zip && \
@@ -61,3 +61,4 @@ ENV ORACLE_HOME /usr/lib/instantclient_12_1
 
 RUN pip install cx_Oracle
 RUN pip install pika
+RUN apk del gcc musl-dev
