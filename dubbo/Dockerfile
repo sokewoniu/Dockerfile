@@ -4,4 +4,4 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 EXPOSE 8035
 VOLUME /dubbo
 WORKDIR /dubbo
-ENTRYPOINT  java -Duser.timezone=GMT+08 -jar /dubbo/dubbo.jar
+ENTRYPOINT  java -Djava.security.egd=file:/dev/./urandom -Duser.timezone=GMT+08 -jar /dubbo/dubbo.jar
